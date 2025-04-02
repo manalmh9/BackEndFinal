@@ -28,4 +28,7 @@ public class MarqueService {
     public List<Marque> getScoresByUserAndEvent(String user_license, Long id_evenement, Long id_cible) {
         return marqueRepository.findByLicenceAndIdEvenementAndIdCible(user_license, id_evenement, id_cible);
     }
+    public void deleteScore(Long id) {
+        marqueRepository.deleteById(id);
+    }
 }

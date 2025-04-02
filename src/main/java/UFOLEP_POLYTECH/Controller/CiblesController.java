@@ -8,28 +8,36 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/cibles")
+@RequestMapping("/cibles")
 public class CiblesController {
 
     @Autowired
     private CiblesService ciblesService;
 
-    // Ajouter une cible
     @PostMapping
-    public Cibles createCible(@RequestBody Cibles cible) {
-        return ciblesService.addCible(cible);
+    public Cibles addCible(@RequestBody Cibles cible) {
+        return ciblesService.saveCible(cible);
     }
 
-    // Récupérer les cibles par événement et cible
-    @GetMapping("/{id_evenement}/{cible}")
-    public List<Cibles> getCibles(@PathVariable Long id_evenement, @PathVariable String cible) {
-        return ciblesService.getCibles(id_evenement, cible);
+    @PutMapping("/{id}")
+    public Cibles updateCible(@PathVariable Long id, @RequestBody Cibles cible) {
+        return ciblesService.updateCible(id, cible);
     }
 
-    // Supprimer une cible
     @DeleteMapping("/{id}")
-    public String deleteCible(@PathVariable Long id) {
+    public void deleteCible(@PathVariable Long id) {
         ciblesService.deleteCible(id);
-        return "Cible supprimée avec succès";
     }
+
+    @GetMapping("/{id}")
+    public Cibles getCibleById(@PathVariable Long id) {
+        return ciblesService.getCibleById(id);
+    }
+
+    @GetMapping
+    public List<Cibles> getAllCibles() {
+        return ciblesService.getAllCibles();
+    }
+
+   
 }

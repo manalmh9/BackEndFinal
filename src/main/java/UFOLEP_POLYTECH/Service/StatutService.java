@@ -29,4 +29,13 @@ public class StatutService {
     public void deleteStatut(Long id) {
         statutRepository.deleteById(id);
     }
+    public String assignStatutToUser(Statut statut) {
+        statutRepository.save(statut);
+        return "Statut assigned successfully!";
+    }
+
+    // Obtenir le statut d'un utilisateur
+    public Statut getStatutByUser(Long userId) {
+        return statutRepository.findByIdUtilisateur(userId);
+    }
 }

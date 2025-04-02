@@ -3,6 +3,7 @@ package UFOLEP_POLYTECH.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import UFOLEP_POLYTECH.Model.Cibles;
 import UFOLEP_POLYTECH.Model.JointureCalendrier;
 import UFOLEP_POLYTECH.Repositories.CiblesRepository;
 import UFOLEP_POLYTECH.Repositories.JointureCalendrierRepository;
@@ -40,4 +41,29 @@ public class CiblesService {
         jointureCalendrierRepository.delete(jointureCalendrier);
         return "Participant supprimé avec succès";
     }
+    public Cibles saveCible(Cibles cible) {
+        return ciblesRepository.save(cible);
+    }
+
+    // Mettre à jour une cible
+    public Cibles updateCible(Long id, Cibles cible) {
+        cible.setId(id);
+        return ciblesRepository.save(cible);
+    }
+
+    // Supprimer une cible
+    public void deleteCible(Long id) {
+        ciblesRepository.deleteById(id);
+    }
+
+    // Récupérer une cible par ID
+    public Cibles getCibleById(Long id) {
+        return ciblesRepository.findById(id).orElse(null);
+    }
+
+    // Récupérer tous les cibles
+    public List<Cibles> getAllCibles() {
+        return ciblesRepository.findAll();
+    }
+
 }
