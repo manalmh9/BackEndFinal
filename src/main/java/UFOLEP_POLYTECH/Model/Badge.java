@@ -24,7 +24,7 @@ public class Badge {
     private int cosvF;
     private int coavF;
     private int distanceSarb;// distance de tir
-    private int sarbM;/sarb masc
+    private int sarbM;//sarb masc
     private int sarbF;//sarb fem
 	public Long getId() {
 		return id;
