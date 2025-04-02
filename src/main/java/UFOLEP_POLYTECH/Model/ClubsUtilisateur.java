@@ -30,8 +30,28 @@ public class ClubsUtilisateur {
 	public String getNom() {
 		return nom;
 	}
+	
 	public void setNom(String nom) {
 		this.nom = nom;
+	}
+	
+	public Sexe getSexe() {
+		return sexe;
+	}
+	public void setSexe(Sexe sexe) {
+		this.sexe = sexe;
+	}
+	public Role getRole() {
+		return role;
+	}
+	public void setRole(Role role) {
+		this.role = role;
+	}
+	public Clubs getClub() {
+		return club;
+	}
+	public void setClub(Clubs club) {
+		this.club = club;
 	}
 	public String getPrenom() {
 		return prenom;
@@ -45,6 +65,8 @@ public class ClubsUtilisateur {
 	public void setLicence(String licence) {
 		this.licence = licence;
 	}
-
+	public String getClubName() {
+        return club != null ? club.getNom() : null;
+    }
     
 }

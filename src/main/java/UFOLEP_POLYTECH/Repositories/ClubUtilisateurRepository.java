@@ -18,6 +18,5 @@ public interface ClubUtilisateurRepository extends JpaRepository<ClubsUtilisateu
 
     // Vérifier si un utilisateur existe déjà par licence
     boolean existsByLicence(String licence);
-    ClubsUtilisateur findByIdUtilisateur(Long id);
 
 }
