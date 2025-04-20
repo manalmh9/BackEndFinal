@@ -1,6 +1,7 @@
 package com.ufolep.polytech.service;
 
 import java.util.List;
+import java.util.Optional;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -80,4 +81,8 @@ public class ClubsUtilisateurService {
     public List<ClubsUtilisateur> getAllClubsUtilisateurs() {
         return clubsUtilisateurRepository.findAll();
     }
+    public Optional<ClubsUtilisateur> findByLicence(String licence) {
+        return clubsUtilisateurRepository.findByLicence(licence);
+    }
+
 }
